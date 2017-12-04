@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="FRT-le-iIH">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -51,20 +51,20 @@
                                             <constraint firstAttribute="height" constant="127" id="zlv-0p-48y"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="100"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="M12-oi-dbb" userLabel="Weather Condition Image View">
                                         <rect key="frame" x="16" y="129" width="343" height="229"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oSD-Mw-X16" userLabel="City Label">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yo! Loading..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oSD-Mw-X16" userLabel="City Label">
                                         <rect key="frame" x="16" y="360" width="269" height="94"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="269" id="6Nh-4r-Nuh"/>
                                             <constraint firstAttribute="height" constant="94" id="YyM-xg-Bg3"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                        <color key="textColor" red="1" green="0.99997437" blue="0.99999129769999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -95,6 +95,11 @@
                             <constraint firstItem="tSe-xj-aP6" firstAttribute="leading" secondItem="W4e-LE-gvL" secondAttribute="leading" id="wzE-Ov-YuG"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cityLabel" destination="oSD-Mw-X16" id="u8p-8M-zYg"/>
+                        <outlet property="temperatureLabel" destination="jCA-rE-JWQ" id="kUZ-1e-63w"/>
+                        <outlet property="weatherIcon" destination="M12-oi-dbb" id="Dnm-KG-G9d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kxt-aA-ehn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -128,6 +133,9 @@
                                         <state key="normal" title="Get Weather">
                                             <color key="titleColor" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="getWeatherPressed:" destination="VSk-ca-c6Y" eventType="touchUpInside" id="8iM-kx-eMW"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7WL-O2-BFg" userLabel="City Name Text Field">
                                         <rect key="frame" x="93" y="141" width="189" height="30"/>
@@ -143,7 +151,7 @@
                                         </constraints>
                                         <state key="normal" image="left"/>
                                         <connections>
-                                            <segue destination="FRT-le-iIH" kind="presentation" identifier="goBack" id="pOh-JW-CxA"/>
+                                            <action selector="backButtonPressed:" destination="VSk-ca-c6Y" eventType="touchUpInside" id="xFa-lE-R2i"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -174,6 +182,9 @@
                             <constraint firstItem="ZVT-oo-F10" firstAttribute="leading" secondItem="SRJ-yc-4rW" secondAttribute="leading" id="kBK-em-8tw"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="changeCityTextField" destination="7WL-O2-BFg" id="MOs-bm-Xeo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gjc-vi-dHT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -186,7 +197,4 @@
         <image name="left" width="32" height="32"/>
         <image name="switch" width="64" height="64"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="pOh-JW-CxA"/>
-    </inferredMetricsTieBreakers>
 </document>
