@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreLocation
 
-class WeatherSandboxViewController: UIViewController {
+class WeatherSandboxViewController: UIViewController, CLLocationManagerDelegate {
 
     
     
@@ -18,7 +19,7 @@ class WeatherSandboxViewController: UIViewController {
     
     
     //TODO: Declare instance variables here
-    
+    let locationManager = CLLocationManager()
     
     
     // IBOutlets
@@ -35,7 +36,18 @@ class WeatherSandboxViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         //TODO:Set up the location manager here.
-
+        // lets use this class to serve as the delegate object
+        // note we declared that we'll conform to the delegate protocal in the class declaration
+        locationManager.delegate = self
+        
+        // how accurate we want the location to be
+        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters  // good for weather
+        //locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation // good for nav and food whilst driving
+        
+        // need to edit the info.plist file and add the following two properties so we get the popups
+        // add to info.plist Privacy - "Location When In Use Usage description"
+        // add to info.plist Privacy - "Location Usage Description"
+        locationManager.requestWhenInUseAuthorization() // this triggers the autorization popup
     }
 
     override func didReceiveMemoryWarning() {
