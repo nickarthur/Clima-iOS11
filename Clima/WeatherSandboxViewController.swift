@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreLocation
+import Alamofire
+import SwiftyJSON
 
 class WeatherSandboxViewController: UIViewController, CLLocationManagerDelegate {
 
@@ -48,6 +50,10 @@ class WeatherSandboxViewController: UIViewController, CLLocationManagerDelegate 
         // add to info.plist Privacy - "Location When In Use Usage description"
         // add to info.plist Privacy - "Location Usage Description"
         locationManager.requestWhenInUseAuthorization() // this triggers the autorization popup
+        
+        // kick off the async method to get location updates
+        // this runs in background -- will send registered delegate the updates
+        locationManager.startUpdatingLocation()
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,8 +66,10 @@ class WeatherSandboxViewController: UIViewController, CLLocationManagerDelegate 
     /***************************************************************/
     
     //Write the getWeatherData method here:
-    
-    
+    func getWeatherData(url: String, parameters: [String:String]) -> Void {
+        
+    }
+
     
     
     
@@ -94,10 +102,40 @@ class WeatherSandboxViewController: UIViewController, CLLocationManagerDelegate 
     
     //Write the didUpdateLocations method here:
     
+    // delegate method receives the updates
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        // the last value in the array is the most accurate
+        let location = locations[locations.count - 1]
+        
+        // check the accuracy
+        if location.horizontalAccuracy > 0 { // we have a decent location
+            
+            // SAVE THE USER's PHONE BATTERY
+            // since we have a good location, stop updating it
+            locationManager.stopUpdatingLocation()
+            
+            print("longitude = \(location.coordinate.longitude), latitude = \(location.coordinate.latitude)")
+            
+            let latitude = String(location.coordinate.latitude)
+            let longitude = String(location.coordinate.longitude)
+            
+            // create a dictionary to be sent to the weather service as json
+            // an dictionary of string to string key value pairs
+            let params : [String : String]  = ["lat" : latitude, "lon" : longitude, "appid" : APP_ID]
+        
+            getWeatherData(url: WEATHER_URL, parameters: params)
+            
+        }
+    }
     
     
     //Write the didFailWithError method here:
-    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("An error occurred: \(error)")
+        cityLabel.text = "Location Unavailable"
+        
+    }
     
     
     

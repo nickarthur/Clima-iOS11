@@ -57,7 +57,7 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tstorm3" translatesAutoresizingMaskIntoConstraints="NO" id="M12-oi-dbb" userLabel="Weather Condition Image View">
                                         <rect key="frame" x="16" y="129" width="343" height="229"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yo! Loading..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oSD-Mw-X16" userLabel="City Label">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oSD-Mw-X16" userLabel="City Label">
                                         <rect key="frame" x="16" y="360" width="269" height="94"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="269" id="6Nh-4r-Nuh"/>
