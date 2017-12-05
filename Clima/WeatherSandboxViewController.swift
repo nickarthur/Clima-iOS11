@@ -68,6 +68,22 @@ class WeatherSandboxViewController: UIViewController, CLLocationManagerDelegate 
     //Write the getWeatherData method here:
     func getWeatherData(url: String, parameters: [String:String]) -> Void {
         
+        Alamofire.request(url, method: .get, parameters: parameters, headers: nil).responseJSON {
+            response in
+            if response.result.isSuccess {
+                print("Success! Got the weather data")
+                
+                let weatherJSON : JSON = JSON(response.data)
+                // we can copy paste from console to http://www.jsoneditoronline.org
+                print(weatherJSON)
+                
+                
+            }
+            else if response.result.isFailure {
+                print("request failed: \(response.result.error)" )
+                self.cityLabel.text = "Connection Issues"
+            }
+        }
     }
 
     
@@ -114,6 +130,11 @@ class WeatherSandboxViewController: UIViewController, CLLocationManagerDelegate 
             // SAVE THE USER's PHONE BATTERY
             // since we have a good location, stop updating it
             locationManager.stopUpdatingLocation()
+            
+            // to prevent making multiple trips to the weather service api
+            // once this fires we can unregister the delegat... we can re-register later when we need
+            // e.g. if the user types in a different city
+            locationManager.delegate = nil
             
             print("longitude = \(location.coordinate.longitude), latitude = \(location.coordinate.latitude)")
             
