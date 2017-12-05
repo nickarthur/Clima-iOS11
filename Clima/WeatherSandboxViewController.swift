@@ -44,7 +44,7 @@ class WeatherSandboxViewController: UIViewController, CLLocationManagerDelegate 
         
         // how accurate we want the location to be
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters  // good for weather
-        //locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation // good for nav and food whilst driving
+//        locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation // good for nav and food whilst driving
         
         // need to edit the info.plist file and add the following two properties so we get the popups
         // add to info.plist Privacy - "Location When In Use Usage description"
@@ -72,15 +72,18 @@ class WeatherSandboxViewController: UIViewController, CLLocationManagerDelegate 
             response in
             if response.result.isSuccess {
                 print("Success! Got the weather data")
-                
-                let weatherJSON : JSON = JSON(response.data)
+                // here we can force unwrap because we are in success path and have data
+                //let weatherJSON : JSON = JSON(response.data!)
+                //let weatherJSON : JSON = JSON(response.data as Any) // we could declare the response data as Any
+                let weatherJSON : JSON = JSON(response.result.value!)  // value is same as data
+
                 // we can copy paste from console to http://www.jsoneditoronline.org
-                print(weatherJSON)
-                
+                //print(weatherJSON)
+                self.updateWeatherData(json: weatherJSON)
                 
             }
             else if response.result.isFailure {
-                print("request failed: \(response.result.error)" )
+                print("request failed: \(String(describing: response.result.error))" )
                 self.cityLabel.text = "Connection Issues"
             }
         }
@@ -97,7 +100,11 @@ class WeatherSandboxViewController: UIViewController, CLLocationManagerDelegate 
     
     //Write the updateWeatherData method here:
     
-    
+    // best to parse in a separate function and create a DTO to support passing the
+    // data around-- e.g. to the UI
+    func updateWeatherData(json: JSON) {
+        let tempResult = json["main"]["temp"]
+    }
     
     
     
