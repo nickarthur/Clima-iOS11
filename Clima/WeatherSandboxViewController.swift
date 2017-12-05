@@ -22,7 +22,8 @@ class WeatherSandboxViewController: UIViewController, CLLocationManagerDelegate 
     
     //TODO: Declare instance variables here
     let locationManager = CLLocationManager()
-    
+    let weatherDataModel = WeatherDataModel()
+
     
     // IBOutlets
     @IBOutlet weak var weatherIcon: UIImageView!
@@ -72,11 +73,14 @@ class WeatherSandboxViewController: UIViewController, CLLocationManagerDelegate 
             response in
             if response.result.isSuccess {
                 print("Success! Got the weather data")
+                
                 // here we can force unwrap because we are in success path and have data
                 //let weatherJSON : JSON = JSON(response.data!)
                 //let weatherJSON : JSON = JSON(response.data as Any) // we could declare the response data as Any
-                let weatherJSON : JSON = JSON(response.result.value!)  // value is same as data
-
+                //let weatherJSON : JSON = JSON(response.result.value!)  // value is same as data
+                
+                let weatherJSON : JSON = JSON(response.result.value ?? JSON(NSNull()))
+                
                 // we can copy paste from console to http://www.jsoneditoronline.org
                 //print(weatherJSON)
                 self.updateWeatherData(json: weatherJSON)
@@ -102,8 +106,25 @@ class WeatherSandboxViewController: UIViewController, CLLocationManagerDelegate 
     
     // best to parse in a separate function and create a DTO to support passing the
     // data around-- e.g. to the UI
+    fileprivate func convertDegreesKelvinToFahrenheitInteger (_ kelvin: Double) -> Int {
+            return Int(kelvin - 273.15)
+    }
+    
     func updateWeatherData(json: JSON) {
-        let tempResult = json["main"]["temp"]
+        
+        //swifty json has nice extensions to covert json to other datatypes
+        if let tempResult = json["main"]["temp"].double {
+            
+            let fahrenheitTemp = convertDegreesKelvinToFahrenheitInteger(tempResult)
+            
+            weatherDataModel.temperature = fahrenheitTemp
+            weatherDataModel.city = json["name"].stringValue
+            weatherDataModel.condition = json["weather"][0]["id"].intValue
+            weatherDataModel.weatherIconName = weatherDataModel.updateWeatherIcon(condition: weatherDataModel.condition)
+        }
+        else {
+            print(json.debugDescription)
+        }
     }
     
     
@@ -153,7 +174,6 @@ class WeatherSandboxViewController: UIViewController, CLLocationManagerDelegate 
             let params : [String : String]  = ["lat" : latitude, "lon" : longitude, "appid" : APP_ID]
         
             getWeatherData(url: WEATHER_URL, parameters: params)
-            
         }
     }
     
