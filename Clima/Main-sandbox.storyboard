@@ -27,7 +27,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="tSe-xj-aP6" userLabel="Background Image View">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BsQ-c6-CGr" userLabel="Black Background Image View">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.34999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="tSe-xj-aP6" userLabel="Background Image View">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vs2-41-DDX" userLabel="Change City Button">
@@ -85,10 +89,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="tSe-xj-aP6" secondAttribute="trailing" id="0MR-FH-zzi"/>
+                            <constraint firstAttribute="trailing" secondItem="BsQ-c6-CGr" secondAttribute="trailing" id="F5g-7B-08X"/>
                             <constraint firstItem="zcb-aB-jRi" firstAttribute="top" secondItem="QMs-7k-pkV" secondAttribute="bottom" constant="20" id="FnP-hr-eXL"/>
+                            <constraint firstItem="zcb-aB-jRi" firstAttribute="top" secondItem="BsQ-c6-CGr" secondAttribute="bottom" id="HjA-Jl-tS9"/>
                             <constraint firstItem="tSe-xj-aP6" firstAttribute="top" secondItem="W4e-LE-gvL" secondAttribute="top" id="KGG-k1-mUr"/>
                             <constraint firstItem="Vs2-41-DDX" firstAttribute="trailing" secondItem="W4e-LE-gvL" secondAttribute="trailingMargin" id="KdZ-3c-H5r"/>
+                            <constraint firstItem="BsQ-c6-CGr" firstAttribute="top" secondItem="W4e-LE-gvL" secondAttribute="top" id="Pol-dn-sjX"/>
                             <constraint firstItem="QMs-7k-pkV" firstAttribute="leading" secondItem="W4e-LE-gvL" secondAttribute="leading" id="b8Z-dL-yvJ"/>
+                            <constraint firstItem="BsQ-c6-CGr" firstAttribute="leading" secondItem="W4e-LE-gvL" secondAttribute="leading" id="hI5-Kc-VJf"/>
                             <constraint firstItem="zcb-aB-jRi" firstAttribute="top" secondItem="tSe-xj-aP6" secondAttribute="bottom" id="j9j-nJ-ui1"/>
                             <constraint firstAttribute="trailing" secondItem="QMs-7k-pkV" secondAttribute="trailing" id="omx-NW-JVr"/>
                             <constraint firstItem="Vs2-41-DDX" firstAttribute="top" secondItem="JTn-uk-g4A" secondAttribute="bottom" id="tXx-bg-PMR"/>

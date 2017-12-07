@@ -17,6 +17,11 @@
 		7363F98B1FD4C3A4000BC9C7 /* Main-sandbox.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7363F98A1FD4C3A4000BC9C7 /* Main-sandbox.storyboard */; };
 		7363F9911FD4CD13000BC9C7 /* WeatherSandboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7363F9901FD4CD13000BC9C7 /* WeatherSandboxViewController.swift */; };
 		7363F9931FD4CD30000BC9C7 /* ChangeCitySandboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7363F9921FD4CD30000BC9C7 /* ChangeCitySandboxViewController.swift */; };
+		73CDB5D11FD7C858007CF3CF /* input.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 73CDB5CF1FD7C857007CF3CF /* input.gpx */; };
+		73CDB5D21FD7C858007CF3CF /* output.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 73CDB5D01FD7C857007CF3CF /* output.gpx */; };
+		73CDB5D41FD90364007CF3CF /* Austin Capitol.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 73CDB5D31FD90364007CF3CF /* Austin Capitol.gpx */; };
+		73DB0DC11FD79D53003250B4 /* IVUTILS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DB0DC01FD79D53003250B4 /* IVUTILS.swift */; };
+		73DB0DC51FD7AC9B003250B4 /* NY-Marathon-Cornverted.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 73DB0DC41FD7AC9A003250B4 /* NY-Marathon-Cornverted.gpx */; };
 		ABD37D6ABD3E41489864C708 /* Pods_Clima.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A808ACD19752E5A825534717 /* Pods_Clima.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +39,13 @@
 		7363F98A1FD4C3A4000BC9C7 /* Main-sandbox.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Main-sandbox.storyboard"; sourceTree = "<group>"; };
 		7363F9901FD4CD13000BC9C7 /* WeatherSandboxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSandboxViewController.swift; sourceTree = "<group>"; };
 		7363F9921FD4CD30000BC9C7 /* ChangeCitySandboxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCitySandboxViewController.swift; sourceTree = "<group>"; };
+		73CDB5CF1FD7C857007CF3CF /* input.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = input.gpx; sourceTree = "<group>"; };
+		73CDB5D01FD7C857007CF3CF /* output.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = output.gpx; sourceTree = "<group>"; };
+		73CDB5D31FD90364007CF3CF /* Austin Capitol.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Austin Capitol.gpx"; sourceTree = "<group>"; };
+		73DB0DC01FD79D53003250B4 /* IVUTILS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IVUTILS.swift; sourceTree = "<group>"; };
+		73DB0DC41FD7AC9A003250B4 /* NY-Marathon-Cornverted.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "NY-Marathon-Cornverted.gpx"; sourceTree = "<group>"; };
+		73EDAE971FD792D50064AC0B /* Apple Computer.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Apple Computer.gpx"; sourceTree = "<group>"; };
+		73EDAE991FD797910064AC0B /* New York City Marathon.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "New York City Marathon.gpx"; sourceTree = "<group>"; };
 		8DA41D9B5AE23ED80AE1CD5E /* Pods-Clima.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clima.release.xcconfig"; path = "Pods/Target Support Files/Pods-Clima/Pods-Clima.release.xcconfig"; sourceTree = "<group>"; };
 		A808ACD19752E5A825534717 /* Pods_Clima.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Clima.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -84,7 +96,14 @@
 		63E28ACE1B99C32400FBF6E0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				73CDB5D31FD90364007CF3CF /* Austin Capitol.gpx */,
+				73CDB5CF1FD7C857007CF3CF /* input.gpx */,
+				73CDB5D01FD7C857007CF3CF /* output.gpx */,
+				73DB0DC41FD7AC9A003250B4 /* NY-Marathon-Cornverted.gpx */,
+				73EDAE991FD797910064AC0B /* New York City Marathon.gpx */,
+				73EDAE971FD792D50064AC0B /* Apple Computer.gpx */,
 				63E28ACF1B99C32400FBF6E0 /* Info.plist */,
+				73DB0DC01FD79D53003250B4 /* IVUTILS.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -198,9 +217,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				63E28AF71B99C36100FBF6E0 /* Images.xcassets in Resources */,
+				73DB0DC51FD7AC9B003250B4 /* NY-Marathon-Cornverted.gpx in Resources */,
 				63E28AFF1B99C3B300FBF6E0 /* LaunchScreen.xib in Resources */,
+				73CDB5D11FD7C858007CF3CF /* input.gpx in Resources */,
 				63E28AF81B99C36100FBF6E0 /* Main.storyboard in Resources */,
 				7363F98B1FD4C3A4000BC9C7 /* Main-sandbox.storyboard in Resources */,
+				73CDB5D21FD7C858007CF3CF /* output.gpx in Resources */,
+				73CDB5D41FD90364007CF3CF /* Austin Capitol.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,6 +296,7 @@
 				63E28AF91B99C36100FBF6E0 /* WeatherViewController.swift in Sources */,
 				63E28AD11B99C32400FBF6E0 /* AppDelegate.swift in Sources */,
 				7363F9931FD4CD30000BC9C7 /* ChangeCitySandboxViewController.swift in Sources */,
+				73DB0DC11FD79D53003250B4 /* IVUTILS.swift in Sources */,
 				63E28AF61B99C36100FBF6E0 /* ChangeCityViewController.swift in Sources */,
 				7363F9911FD4CD13000BC9C7 /* WeatherSandboxViewController.swift in Sources */,
 			);

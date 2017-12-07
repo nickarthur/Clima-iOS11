@@ -11,6 +11,8 @@ import CoreLocation
 import Alamofire
 import SwiftyJSON
 
+//BEGIN LEN DEBUG
+//END LEN DEBUG
 class WeatherSandboxViewController: UIViewController, CLLocationManagerDelegate {
 
     
@@ -106,24 +108,26 @@ class WeatherSandboxViewController: UIViewController, CLLocationManagerDelegate 
     
     // best to parse in a separate function and create a DTO to support passing the
     // data around-- e.g. to the UI
-    fileprivate func convertDegreesKelvinToFahrenheitInteger (_ kelvin: Double) -> Int {
-            return Int(kelvin - 273.15)
-    }
     
     func updateWeatherData(json: JSON) {
         
         //swifty json has nice extensions to covert json to other datatypes
         if let tempResult = json["main"]["temp"].double {
             
-            let fahrenheitTemp = convertDegreesKelvinToFahrenheitInteger(tempResult)
-            
+            // use my IVUTILS temperature conversion functions
+            let fahrenheitTemp = Int(farenheitFromKelvin(tempResult))
+
             weatherDataModel.temperature = fahrenheitTemp
             weatherDataModel.city = json["name"].stringValue
             weatherDataModel.condition = json["weather"][0]["id"].intValue
             weatherDataModel.weatherIconName = weatherDataModel.updateWeatherIcon(condition: weatherDataModel.condition)
+            
+            // update the screen
+            updateUIWithWeatherData()
         }
         else {
             print(json.debugDescription)
+            cityLabel.text = "Weather Unavailable"
         }
     }
     
@@ -132,10 +136,14 @@ class WeatherSandboxViewController: UIViewController, CLLocationManagerDelegate 
     //MARK: - UI Updates
     /***************************************************************/
     
+        //Write the updateUIWithWeatherData method here:
     
-    //Write the updateUIWithWeatherData method here:
-    
-    
+    func updateUIWithWeatherData() {
+        
+        cityLabel.text = weatherDataModel.city
+        temperatureLabel.text = "\(weatherDataModel.temperature)°"
+        weatherIcon.image = UIImage(named: weatherDataModel.weatherIconName)
+    }
     
     
     
