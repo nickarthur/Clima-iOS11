@@ -11,11 +11,9 @@ import CoreLocation
 import Alamofire
 import SwiftyJSON
 
-//BEGIN LEN DEBUG
-//END LEN DEBUG
-class WeatherSandboxViewController: UIViewController, CLLocationManagerDelegate {
 
-    
+class WeatherSandboxViewController: UIViewController, CLLocationManagerDelegate, ChangeCityDelegate {
+
     
     //Constants
     let WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather"
@@ -202,19 +200,30 @@ class WeatherSandboxViewController: UIViewController, CLLocationManagerDelegate 
     
     //Write the userEnteredANewCityName Delegate method here:
     
-    
+    func userEnteredANewCityName(city: String) {
+        
+        print(city.uppercased())
+        
+    }
     
     //Write the PrepareForSegue Method here
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
+      //MARK: - Navigation
+    
+      //In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
+      //Get the new view controller using segue.destinationViewController.
+      //Pass the selected object to the new view controller.
+        if segue.identifier == "changeCityName" {
+            
+            let destinationVC = segue.destination as! ChangeCitySandboxViewController
+            
+            // Haay! Call Me!
+            destinationVC.delegate = self
+        }
      }
-     */
+    
     
     
 
